@@ -2,15 +2,32 @@ package com.example.pre_examen_kotlin
 
 class ReciboNomina {
 
-    class ReciboNomina(
-        var numRecibo: Int,
-        var nombre: String,
-        var horasTrabajadas: Double,
-        var horasExtras: Double,
-        var puesto: Int,
-        var impuestoPor: Double
+
+        var numRecibo: Int = 0
+    lateinit var nombre: String
+        var horasTrabajadas: Double = 0.0
+    var horasExtras: Double = 0.0
+    var puesto: Int = 0
+    var impuestoPor: Double = 0.0
+
+    constructor(
+        numRecibo: Int,
+        nombre: String,
+        horasTrabajadas: Double,
+        horasExtras: Double,
+        puesto: Int,
+        impuestoPor: Double
     ) {
-        fun calcularSubtotal(): Float {
+        this.numRecibo = numRecibo
+        this.nombre = nombre
+        this.horasTrabajadas = horasTrabajadas
+        this.horasExtras = horasExtras
+        this.puesto = puesto
+        this.impuestoPor = impuestoPor
+    }
+
+
+    fun calcularSubtotal(): Float {
             var resultado = 0.0
             val pagoBase = 200.0
             var pagoPorHoras = 0.0
@@ -35,7 +52,7 @@ class ReciboNomina {
             val pagar = calcularSubtotal() - calcularImpuesto()
             return pagar.toFloat()
         }
-    }
+
 
 
 
